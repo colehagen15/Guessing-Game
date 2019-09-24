@@ -19,6 +19,7 @@ function checkGuess() {
     var docs = document.getElementById("img");
     docs.setAttribute("src", "loadingGif.gif");
     document.getElementById("img").style.visibility="visible";
+    document.getElementById("check").disabled=true;
     setTimeout(() => {
         document.getElementById("img").style.visibility="hidden";
         if (userGuess < answer) {
@@ -37,6 +38,7 @@ function checkGuess() {
         }
         count ++;
         document.getElementById("count").innerHTML = 'Attempts: ' + count;
+        document.getElementById("check").disabled=false;
     }, 3000)
 }
 
