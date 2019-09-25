@@ -15,13 +15,14 @@ function checkGuess() {
     guesses.push(userGuess);
     console.log(guesses);
     console.log(userGuess);
-    //documents.getElemenetByID("demo").style.visibility="hidden";
+    document.getElementById("demo").style.visibility="hidden";
     var docs = document.getElementById("img");
     docs.setAttribute("src", "loadingGif.gif");
     document.getElementById("img").style.visibility="visible";
     document.getElementById("check").disabled=true;
     setTimeout(() => {
         document.getElementById("img").style.visibility="hidden";
+        document.getElementById("demo").style.visibility="visible";
         if (userGuess < answer) {
             document.getElementById("demo").innerHTML ="Guess is too low";
         }
