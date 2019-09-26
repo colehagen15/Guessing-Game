@@ -1,73 +1,81 @@
 console.log("Hello There");
-//Generates random number, 0-20
+//Generates Variables
 var answer = Math.floor(Math.random() * 20);
-
-//Tracks guess history
-var guesses = [];
-//Counts guesses
 var count = 0;
-document.getElementById("restart").style.visibility="hidden";
+var guesses = [];
+
+//Setting Elements
+let countElement = document.getElementById("count");
+let restartBtn = document.getElementById("restart");
+let checkBtn = document.getElementById("check");
+let cheatBtn = document.getElementById("cheat");
+let pastGuesses = document.getElementById("pastGuesses");
+let feedBack = document.getElementById("demo");
+let guessList = document.getElementById("guessList");
+let userGuesses = document.getElementById("userGuess");
+let image = document.getElementById("img");
+
+restartBtn.style.visibility="hidden";
+
 //Checks guesses and tells user if low, high, or correct
 function checkGuess() {
     console.log("You clicked the button");
     console.log(answer);
-    var userGuess = document.getElementById("userGuess").value;
+    var userGuess = userGuesses.value;
     guesses.push(userGuess);
     console.log(guesses);
     console.log(userGuess);
-    document.getElementById("demo").style.visibility="hidden";
-    var docs = document.getElementById("img");
-    docs.setAttribute("src", "loadingGif.gif");
-    document.getElementById("img").style.visibility="visible";
-    document.getElementById("check").disabled=true;
+    feedBack.style.visibility="hidden";
+    image.setAttribute("src", "loadingGif.gif");
+    image.style.visibility="visible";
+    checkBtn.disabled=true;
     setTimeout(() => {
-        document.getElementById("img").style.visibility="hidden";
-        document.getElementById("demo").style.visibility="visible";
+        image.style.visibility="hidden";
+        feedBack.style.visibility="visible";
         if (userGuess < answer) {
-            document.getElementById("demo").innerHTML ="Guess is too low";
+            feedBack.innerHTML ="Guess is too low";
         }
         else if (userGuess > answer) {
-            document.getElementById("demo").innerHTML ="Guess is too high";
+            feedBack.innerHTML ="Guess is too high";
         }
          else {
-            document.getElementById("demo").innerHTML ="You guessed it! You won the game";
-            document.getElementById("userGuess").style.visibility="hidden";
-            document.getElementById("restart").style.visibility="visible";
+            feedBack.innerHTML ="You guessed it! You won the game";
+            userGuesses.style.visibility="hidden";
+            restartBtn.style.visibility="visible";
             //document.getElementById("check").style.visibility="hidden";
             //document.getElementById("guessList").style.visibility="hidden";
             //document.getElementById("cheatBtn").style.visibility="hidden";
         }
         count ++;
-        document.getElementById("count").innerHTML = 'Attempts: ' + count;
-        document.getElementById("check").disabled=false;
+        countElement.innerHTML='Attempt: ' + count;
+
+        checkBtn.disabled=false;
     }, 3000)
 }
 
 //Shows the user past guesses
-function guessList() {
+function showList() {
     console.log(guesses);
-    document.getElementById("pastGuesses").innerHTML = "Guess History: " + guesses; 
+    pastGuesses.innerHTML = "Guess History: " + guesses; 
 }
 
 //Shows user answer 
 function cheat() {
     console.log(answer);
-    document.getElementById("cheat").style.visibility="visible";
-    document.getElementById("cheat").innerHTML = "Answer is: " + answer;
+    cheatBtn.style.visibility="visible";
+    cheatBtn.innerHTML = "Answer is: " + answer;
 }
 
 //Unhides every element hidden from win
 function restart() {
     answer = Math.floor(Math.random() * 20);
-    
-    document.getElementById("userGuess").style.visibility="visible";
-    document.getElementById("cheat").style.visibility="hidden";
-    document.getElementById("restart").style.visibility="hidden";
-    document.getElemenetByID("demo").style.visibility="hidden";
-    document.getElementById("userGuess").style.visibility="visible";
-    document.getElementById("check").style.visibility="visible";
-    document.getElementById("guessList").style.visibility="hidden";
-    document.getElementById("cheatBtn").style.visibility="visible";
-    guesses = [];
     count = 0;
+    guesses = [];
+    userGuesses.style.visibility="visible";
+    cheatBtn.style.visibility="hidden";
+    restartBtn.style.visibility="hidden";
+    feedBack.style.visibility="hidden";
+    checkBtn.style.visibility="visible";
+    cheatBtn.style.visibility="hidden";
+    document.getElementById("count").innerHTML = 'Attempt: ' + count;
 }
