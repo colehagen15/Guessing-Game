@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>Number Guessing Game</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -13,6 +13,7 @@
     height: 200px;
     background: #aaa;
   }
+
   </style>
 </head>
 <body>
@@ -20,18 +21,32 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Welcome to the Number Guessing Game!</h1>
     <p>Type in a guess as to what the number is (number is between 0 & 20)</p>
-    <input id="userGuess">
     
-    <button id="check" onclick="checkGuess()">Guess</button>
-    <button id="guessList" onclick="guessList()">Past Guesses</button>
-    <button id="cheatBtn" onclick="cheat()">Cheat</button>
-    <p id="demo"></p> 
-    <button id="restart" onClick="restart()">Restart Game</button>
-    <p id="count"></p>
+    <div class="input-group mb-3 input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">0-20</span>
+      </div>
+      <input
+        id="userGuess"
+        type="text"
+        class="form-control"
+        placeholder="Guess"
+        aria-label="Guess"
+        aria-describedby="basic-addon2"
+      />
+    </div>
+    
+    <button id="check" type="button" class="btn btn-primary btn-lg" onclick="checkGuess()">Guess</button>
+    <button id="guessList" type="button" class="btn btn-secondary btn-lg" onclick="guessList()">Past Guesses</button>
+    <button id="cheatBtn" type="button" class="btn btn-danger btn-lg" onclick="cheat()">Cheat</button>
+    <p><br></p>
+    <h3 id="demo"></h3>
+    <img id="img">
+    <button id="restart" type="button" class="btn btn-success btn-lg" onClick="restart()">Restart Game</button>
     <p id="pastGuesses"></p>
-    <img id="img" >
+    
     <p id="cheat"></p>
-</div>
+    <div id="count" class="alert alert-warning" role="alert"></div>
 
 
 <div class="jumbotron text-center" style="margin-bottom:0">

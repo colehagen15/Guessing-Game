@@ -68,4 +68,6 @@ function restart() {
     document.getElementById("check").style.visibility="visible";
     document.getElementById("guessList").style.visibility="hidden";
     document.getElementById("cheatBtn").style.visibility="visible";
+    guesses = [];
+    count = 0;
 }
