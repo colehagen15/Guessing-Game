@@ -15,22 +15,25 @@ let guessList = document.getElementById("guessList");
 let userGuesses = document.getElementById("userGuess");
 let image = document.getElementById("img");
 
+image.style.display="none";
+countElement.style.display= "none";
 restartBtn.style.visibility="hidden";
 
 //Checks guesses and tells user if low, high, or correct
 function checkGuess() {
     console.log("You clicked the button");
     console.log(answer);
+    countElement.style.display= "block";
     var userGuess = userGuesses.value;
     guesses.push(userGuess);
     console.log(guesses);
     console.log(userGuess);
     feedBack.style.visibility="hidden";
     image.setAttribute("src", "loadingGif.gif");
-    image.style.visibility="visible";
+    image.style.display="inline";
     checkBtn.disabled=true;
     setTimeout(() => {
-        image.style.visibility="hidden";
+        image.style.display="none";
         feedBack.style.visibility="visible";
         if (userGuess < answer) {
             feedBack.innerHTML ="Guess is too low";
