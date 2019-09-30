@@ -35,19 +35,22 @@ function checkGuess() {
     setTimeout(() => {
         image.style.display="none";
         feedBack.style.visibility="visible";
-        if (userGuess < answer) {
+        if (userGuess < answer && userGuess >= 0) {
             feedBack.innerHTML ="Guess is too low";
         }
-        else if (userGuess > answer) {
+        else if (userGuess > answer && userGuess <= 20) {
             feedBack.innerHTML ="Guess is too high";
         }
-         else {
+         else if (userGuess == answer) {
             feedBack.innerHTML ="You guessed it! You won the game";
             userGuesses.style.visibility="hidden";
             restartBtn.style.visibility="visible";
             //document.getElementById("check").style.visibility="hidden";
             //document.getElementById("guessList").style.visibility="hidden";
             //document.getElementById("cheatBtn").style.visibility="hidden";
+        }
+        else if (userGuess > 20 || userGuess < 0){
+        feedBack.innerHTML="Guess is out of range, must be between 0 and 20!";
         }
         count ++;
         countElement.innerHTML='Attempt: ' + count;
@@ -59,6 +62,7 @@ function checkGuess() {
 //Shows the user past guesses
 function showList() {
     console.log(guesses);
+    pastGuesses.style.visibility="visible";
     pastGuesses.innerHTML = "Guess History: " + guesses; 
 }
 
@@ -80,5 +84,6 @@ function restart() {
     feedBack.style.visibility="hidden";
     checkBtn.style.visibility="visible";
     cheatBtn.style.visibility="hidden";
+    pastGuesses.style.visibility="hidden";
     document.getElementById("count").innerHTML = 'Attempt: ' + count;
 }
