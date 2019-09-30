@@ -1,8 +1,10 @@
 console.log("Hello There");
 //Generates Variables
-var answer = Math.floor(Math.random() * 20);
+var answer = Math.floor(Math.random() * 20) +1; //+1 makes it up to 20 instead of 19
 var count = 0;
 var guesses = [];
+
+console.log(answer); //Dubugging purposes
 
 //Setting Elements
 let countElement = document.getElementById("count");
@@ -30,7 +32,7 @@ function checkGuess() {
     console.log(userGuess);
     feedBack.style.visibility="hidden";
     image.setAttribute("src", "loadingGif.gif");
-    image.style.display="inline";
+    image.style.display="inline"; //Might need to be inline
     checkBtn.disabled=true;
     setTimeout(() => {
         image.style.display="none";
@@ -51,6 +53,9 @@ function checkGuess() {
         }
         else if (userGuess > 20 || userGuess < 0){
         feedBack.innerHTML="Guess is out of range, must be between 0 and 20!";
+        }
+        else if (isNaN(userGuess)) {
+            feedBack.innerHTML = "Guess must be a number. Try again."
         }
         count ++;
         countElement.innerHTML='Attempt: ' + count;
