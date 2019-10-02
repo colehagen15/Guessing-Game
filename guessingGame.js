@@ -13,19 +13,20 @@ console.log(answer); //Dubugging purposes
 let countElement = $("#count");
 let restartBtn = $("#restart");
 let checkBtn = $("#check");
-let cheatBtn = $("#cheat");
+let cheatText = $("#cheat");
 let pastGuesses = $("#pastGuesses");
 let feedBack = $("#demo");
 let guessList = $("#guessList");
 let userGuesses = $("#userGuess");
 let image = $("#img");
+let cheatBtn = $("#cheatBtn");
 
 image.hide();
 countElement.hide();
 restartBtn.hide();
 
 //Checks guesses and tells user if low, high, or correct
-$("#check").click(function() {
+checkBtn.click(function() {
     console.log("You clicked the button");
     console.log(answer);
     countElement.show();
@@ -64,17 +65,17 @@ $("#check").click(function() {
 });
 
 //Shows the user past guesses
-$("#guessList").click(function() {
+guessList.click(function() {
     console.log(guesses);
     pastGuesses.show();
     pastGuesses.text("Guess History: " + guesses); 
 });
 
 //Shows user answer 
-$("#cheatBtn").click(function() {
+cheatBtn.click(function() {
     console.log(answer);
-    cheatBtn.show();
-    cheatBtn.text("Answer is: " + answer);
+    cheatText.show();
+    cheatText.text("Answer is: " + answer);
 });
 
 //Unhides every element hidden from win
@@ -83,11 +84,10 @@ $("#restart").click(function () {
     count = 0;
     guesses = [];
     userGuesses.show();
-    cheatBtn.hide();
+    cheatText.hide();
     restartBtn.hide();
     feedBack.hide();
     checkBtn.show();
-    cheatBtn.hide();
     pastGuesses.hide();
     countElement.hide();
 });
