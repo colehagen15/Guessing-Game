@@ -1,4 +1,7 @@
+$(document).ready(function(){
+
 console.log("Hello There");
+
 //Generates Variables
 var answer = Math.floor(Math.random() * 20) +1; //+1 makes it up to 20 instead of 19
 var count = 0;
@@ -17,12 +20,12 @@ let guessList = $("#guessList");
 let userGuesses = $("#userGuess");
 let image = $("#img");
 
-image.hide();;
+image.hide();
 countElement.hide();
 restartBtn.hide();
 
 //Checks guesses and tells user if low, high, or correct
-function checkGuess() {
+$("#check").click(function() {
     console.log("You clicked the button");
     console.log(answer);
     countElement.show();
@@ -58,24 +61,24 @@ function checkGuess() {
 
         checkBtn.attr("disabled",false);
     }, 3000)
-}
+});
 
 //Shows the user past guesses
-function showList() {
+$("#guessList").click(function() {
     console.log(guesses);
     pastGuesses.show();
     pastGuesses.text("Guess History: " + guesses); 
-}
+});
 
 //Shows user answer 
-function cheat() {
+$("#cheatBtn").click(function() {
     console.log(answer);
     cheatBtn.show();
     cheatBtn.text("Answer is: " + answer);
-}
+});
 
 //Unhides every element hidden from win
-function restart() {
+$("#restart").click(function () {
     answer = Math.floor(Math.random() * 20);
     count = 0;
     guesses = [];
@@ -87,4 +90,6 @@ function restart() {
     cheatBtn.hide();
     pastGuesses.hide();
     countElement.hide();
-}
+});
+
+});
