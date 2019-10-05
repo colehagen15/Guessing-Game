@@ -35,11 +35,11 @@ checkBtn.click(function() {
     console.log(guesses);
     console.log(userGuess);
     feedBack.hide();
-    image.show(); //Might need to be inline
+    image.fadeIn("slow");
     checkBtn.attr("disabled", true);
     setTimeout(() => {
         image.hide();
-        feedBack.show();
+        feedBack.fadeIn("slow");
         if (userGuess < answer && userGuess >= 0) {
             feedBack.text("Guess is too low");
         }
@@ -48,8 +48,14 @@ checkBtn.click(function() {
         }
          else if (userGuess == answer) {
             feedBack.text("You guessed it! You won the game");
+            feedBack.animate({
+                fontSize: '2em', 
+            }, "fast");
             userGuesses.hide();
             restartBtn.show();
+            restartBtn.animate({
+                fontSize: '2em', 
+            }, "slow");
         }
         else if (userGuess > 20 || userGuess < 0){
         feedBack.text("Guess is out of range, must be between 0 and 20!");
