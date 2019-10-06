@@ -20,7 +20,9 @@ let guessList = $("#guessList");
 let userGuesses = $("#userGuess");
 let image = $("#img");
 let cheatBtn = $("#cheatBtn");
+let hedgehogPic = $("#hedgehog");
 
+hedgehogPic.hide();
 image.hide();
 countElement.hide();
 restartBtn.hide();
@@ -47,6 +49,7 @@ checkBtn.click(function() {
             feedBack.text("Guess is too high");
         }
          else if (userGuess == answer) {
+            hedgehogPic.show();
             feedBack.text("You guessed it! You won the game");
             feedBack.animate({
                 fontSize: '2em', 
@@ -96,6 +99,7 @@ $("#restart").click(function () {
     checkBtn.show();
     pastGuesses.hide();
     countElement.hide();
+    hedgehogPic.hide();
 });
 
 });
