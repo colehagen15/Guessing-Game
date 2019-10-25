@@ -21,7 +21,7 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Welcome to the Number Guessing Game!</h1>
     <p>Type in a guess as to what the number is (number is between 0 & 20)</p>
-    
+    <div>
     <div class="input-group mb-3 input-group-lg">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon2">0-20</span>
@@ -35,21 +35,22 @@
         aria-describedby="basic-addon2"
       />
     </div>
-    
+    <div>
     <button id="check" type="button" class="btn btn-primary btn-lg">Guess</button>
     <button id="guessList" type="button" class="btn btn-secondary btn-lg">Past Guesses</button>
     <button id="cheatBtn" type="button" class="btn btn-danger btn-lg">Cheat</button>
-    
-    <h3 id="demo"></h3>
+    <br> <br> <br> <br>
+    <h3 id="demo"><br> <br></h3>
     <img id="hedgehog" src = "hedgehog.png">
     <button id="restart" type="button" class="btn btn-success btn-lg">Restart Game</button>
+    <br>
     <img id="img" src="loadingGif.gif">
     
     <p id="pastGuesses"></p>
     
     <h6 id="cheat"></h6>
     <div id="count" class="alert alert-warning" role="alert"></div>
-
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script 
     src="guessingGame.js">
